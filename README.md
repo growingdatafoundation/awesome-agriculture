@@ -119,6 +119,7 @@ General-purpose GIS platforms and libraries that agricultural tools commonly bui
 ### GIS Platforms
 
 - [QGIS](https://qgis.org) - QGIS is a free, open source, cross platform (lin/win/mac) geographical information system.
+- [AI Segmentation by TerraLab](https://github.com/TerraLabAI/QGIS_AI-Segmentation) - Free QGIS plugin that segments fields, trees, buildings and any object from satellite and drone imagery into vector polygons with one click.
 
 ### Shapefiles
 

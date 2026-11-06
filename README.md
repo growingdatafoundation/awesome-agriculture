@@ -23,6 +23,8 @@ Contributions welcome! Please follow the [contributing guidelines](https://githu
 
 ## Automation and Robotics
 
+Open hardware and software for agricultural robots and autonomous vehicles, from small weeding platforms to coverage path planning for tractors.
+
 - [Ant Robotics](https://antrobotics.de/) - development from Ecoterra bot
 - [Acorn Rover](https://github.com/Twisted-Fields) - precision farming rover, Odrive, Python.
 - [Earth Rover](https://github.com/earthrover) - Ag AGV ROS1 precision farming rover 
@@ -37,9 +39,13 @@ Contributions welcome! Please follow the [contributing guidelines](https://githu
 
 ## Calculators
 
+Tools that turn agronomic formulas into quick answers for everyday farm decisions.
+
 - [farm-calculators](https://github.com/brycejohnston/farm-calculators) - WordPress plugin for calculating various farming and crop related information.
 
 ## Climate, Environment and Weather
+
+Libraries, datasets and services for weather, evapotranspiration and soil data: the environmental inputs behind irrigation, planting and crop models.
 
 - [agroclimatology](https://github.com/brycejohnston/agroclimatology) - Ruby client for interacting with the NASA (POWER) Agroclimatology Web Resource.
 - [evapotranspiration](https://github.com/brycejohnston/evapotranspiration) - Ruby library for calculating reference crop evapotranspiration (ETo).
@@ -52,9 +58,14 @@ Contributions welcome! Please follow the [contributing guidelines](https://githu
 
 ## Crop Modeling, Phenotyping, and Pathology
 
+Communities and tools for simulating crop growth, measuring plant traits and studying plant disease.
+
 - [Open Plant Pathology](https://www.openplantpathology.org/) - A community that values open data and computational tools for advancing epidemiology and pathogen population biology and ecology.
 
 ## Datasets
+
+Openly available agricultural datasets for research, model training and benchmarking, from field imagery and crop-type labels to yield records.
+
 - [Agriculture Datasets Collection](https://lacunafund.org/datasets/agriculture/) - Curated collection of machine learning datasets specifically designed to address food security challenges in developing regions.
 - [CEAOD](https://ceaod.github.io/) - Controlled Environment Agriculture Open Data repository providing standardized datasets for greenhouse and indoor farming research with data analysis tools.
 - [CropHarvest](https://github.com/nasaharvest/cropharvest) - Open source remote sensing dataset for global crop type mapping with 95,186 labeled datapoints from satellite imagery, supporting machine learning research for food security.
@@ -66,6 +77,8 @@ Contributions welcome! Please follow the [contributing guidelines](https://githu
 - [TERRA REF](https://terraref.org) - 1PB public domain high resolution sensor data from sorghum breeding trials ([data publication](https://doi.org/10.5061/dryad.4b8gtht99) with large files available on [globus.org at ncsa#terra-public](https://app.globus.org/file-manager?origin_id=e8feaff4-96cd-11ea-bf90-0e6cccbb0103&origin_path=%2F))
 
 ## Data Standardization, Interoperability and APIs
+
+Standards, frameworks and API examples that help farm software, machinery and services exchange data. Several entries are vendor code samples rather than standards in their own right.
 
 - [AgGateway’s ADAPT Toolkit](https://adaptframework.org) - Open Source project providing tools to simplify communication between growers, their machines, and their partners.
 - [Agstack](https://github.com/agstack) - Open-Source Digital Infrastructure for the Agriculture Ecosystem.
@@ -84,6 +97,8 @@ Contributions welcome! Please follow the [contributing guidelines](https://githu
 
 ## Farm Management Systems and Record Keeping
 
+Applications for planning, recording and reporting farm activities, from market gardens to larger mixed enterprises.
+
 - [Ekylibre](https://github.com/ekylibre/ekylibre) - Farm management information system for farmers and small enterprises built with Ruby on Rails and PostgreSQL/PostGIS.
 - [farmOS](https://github.com/farmOS/farmOS) - Web-based farm record keeping application built with Drupal and PHP.
 - [GrowGood](https://gitlab.com/growgood) - GrowGood is an open-source farm management platform using open standards like ValueFlows and JSON-LD to help track and share interoperable data across agricultural operations and marketplaces.
@@ -93,6 +108,8 @@ Contributions welcome! Please follow the [contributing guidelines](https://githu
 
 
 ## Geospatial and GIS
+
+General-purpose GIS platforms and libraries that agricultural tools commonly build on, plus pointers to broader GIS lists.
 
 ### GIS Resources
 
@@ -109,6 +126,8 @@ Contributions welcome! Please follow the [contributing guidelines](https://githu
 
 ## IoT, Hardware
 
+Sensors, controllers and guidance systems that farmers and makers can build, adapt and run themselves.
+
 - [AgOpenGPS](https://github.com/AgOpenGPS-Official/AgOpenGPS) - Ag precision mapping and section control software.
 - [Farm-Data-Relay-System](https://github.com/timmbogner/Farm-Data-Relay-System) - System using ESP-NOW, LoRa, and other protocols to transport sensor data in remote areas without relying on WiFi.
 - [Farm Hack](https://farmhack.org/tools) - Worldwide community of farmers that build and modify our own tools.
@@ -121,10 +140,15 @@ Contributions welcome! Please follow the [contributing guidelines](https://githu
 
 ## Knowledgebases and Learning Resources
 
+Open databases and guides on growing plants and producing food.
+
 - [Harvest Helper](https://github.com/damwhit/harvest_helper) -  Provides growing, harvesting and recipe information for the 45 plants in the database as well as a JSON API.
 - [OpenFarm](https://github.com/openfarmcc/OpenFarm) - A free and open database for farming and gardening knowledge built with Ruby on Rails.
 
 ## Machine Learning and AI
+
+Frameworks, models and tutorials that apply machine learning to agricultural problems such as yield prediction and plant phenotyping.
+
 - [AgML](https://github.com/Project-AgML/AgML) - Centralized framework for agricultural machine learning.
 - [agridat](https://github.com/kwstat/agridat) - R package providing an extensive collection of datasets from agricultural experiments.
 - [Crop Yield Prediction](https://github.com/JiaxuanYou/crop_yield_prediction) - Deep gaussian process for crop yield prediction based on remote sensing data.
@@ -133,6 +157,8 @@ Contributions welcome! Please follow the [contributing guidelines](https://githu
 - [PlantCV](https://github.com/danforthcenter/plantcv) - Plant phenotyping software using computer vision.
 
 ## Remote Sensing and Imagery
+
+Tools and curated lists for processing satellite, aerial and drone imagery of crops and land.
 
 - [Awesome Sentinel](https://github.com/Fernerkundung/awesome-sentinel) - A curated list of awesome tools, tutorials and APIs related to data from the Copernicus Sentinel Satellites.
 - [Awesome Vegetation Index](https://github.com/px39n/Awesome-Vegetation-Index) - List of reference, applications of common Vegetation Indices for Multi-spectral, hyper-spectral and UAV images.

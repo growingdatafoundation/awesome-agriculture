@@ -36,6 +36,12 @@
       {{- $s := cond (ge . 1000) (printf "%.1fk" (div (float .) 1000)) (printf "%d" (int .)) -}}
       <span class="stars" title="Stars">★ {{ $s }}</span>
     {{- end -}}
+    {{- with .license -}}
+      {{- if eq . "none" -}}<span class="lic lic--none" title="No licence file detected; reuse may not be permitted">no licence</span>
+      {{- else if eq . "other" -}}<span class="lic" title="Licence file present but not a recognised standard licence">other licence</span>
+      {{- else -}}<span class="lic" title="Licence">{{ . }}</span>
+      {{- end -}}
+    {{- end -}}
     {{- if .archived -}}<span class="tag">archived</span>{{- end -}}
     </span>
     {{- end -}}

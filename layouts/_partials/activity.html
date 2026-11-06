@@ -1,6 +1,7 @@
 {{- /*
   Look up repository activity for a parsed URL (url.URL).
-  Returns dict "date" <time> "label" <string> "stars" <number|nil> "archived" <bool>,
+  Returns dict "date" <time> "label" <string> "stars" <number|nil> "archived" <bool>
+  "license" <SPDX id | "other" | "none">, (license only for single repositories/projects)
   or dict "missing" true when the repository/organisation returns 404,
   or "" when the host is unsupported or the lookup fails.
 
@@ -29,8 +30,10 @@
       {{- $date := $repo.pushed_at -}}
       {{- $commits := partial "fetchjson.html" (dict "url" (printf "%s/repos/%s/commits?per_page=1" $api $repo.full_name) "headers" $h) -}}
       {{- if reflect.IsSlice $commits -}}{{- range first 1 $commits -}}{{- $date = .commit.committer.date -}}{{- end -}}{{- end -}}
+      {{- $lic := "none" -}}
+      {{- with $repo.license -}}{{- $lic = cond (eq .spdx_id "NOASSERTION") "other" .spdx_id -}}{{- end -}}
       {{- with $date -}}
-        {{- $out = dict "date" (time.AsTime .) "label" "Last commit" "stars" $repo.stargazers_count "archived" $repo.archived -}}
+        {{- $out = dict "date" (time.AsTime .) "label" "Last commit" "stars" $repo.stargazers_count "archived" $repo.archived "license" $lic -}}
       {{- end -}}
     {{- end -}}
   {{- else -}}
@@ -46,12 +49,16 @@
   {{- $h := dict "Accept" "application/json" -}}
   {{- $api := "https://gitlab.com/api/v4" -}}
   {{- if ge (len $segs) 2 -}}
-    {{- $p := partial "fetchjson.html" (dict "url" (printf "%s/projects/%s" $api (urlquery $path)) "headers" $h) -}}
+    {{- $p := partial "fetchjson.html" (dict "url" (printf "%s/projects/%s?license=true" $api (urlquery $path)) "headers" $h) -}}
     {{- if and (reflect.IsMap $p) (isset $p "_missing") -}}
       {{- $out = dict "missing" true -}}
-    {{- else if $p -}}{{- with $p.last_activity_at -}}
-      {{- $out = dict "date" (time.AsTime .) "label" "Last activity" "stars" $p.star_count "archived" $p.archived -}}
-    {{- end -}}{{- end -}}
+    {{- else if $p -}}
+      {{- $lic := "none" -}}
+      {{- with $p.license -}}{{- $lic = .nickname | default .name | default "other" -}}{{- end -}}
+      {{- with $p.last_activity_at -}}
+        {{- $out = dict "date" (time.AsTime .) "label" "Last activity" "stars" $p.star_count "archived" $p.archived "license" $lic -}}
+      {{- end -}}
+    {{- end -}}
   {{- else -}}
     {{- $q := "projects?order_by=last_activity_at&sort=desc&per_page=1" -}}
     {{- $list := partial "fetchjson.html" (dict "url" (printf "%s/groups/%s/%s&include_subgroups=true" $api (urlquery $path) $q) "headers" $h) -}}

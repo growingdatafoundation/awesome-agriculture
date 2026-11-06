@@ -1,0 +1,30 @@
+# Hugo site for https://awesome-agriculture.gdf.org.au/
+# README.md is the single source of truth; it is mounted as the home page.
+baseURL = "https://awesome-agriculture.gdf.org.au/"
+locale = "en-AU"
+title = "Awesome Agriculture"
+disableKinds = ["taxonomy", "term", "RSS", "section", "page"]
+enableRobotsTXT = true
+
+[params]
+  description = "A curated list of awesome open source technology for agriculture, farming, and gardening."
+  repo = "https://github.com/growingdatafoundation/awesome-agriculture"
+  org = "Growing Data Foundation"
+  orgURL = "https://gdf.org.au/"
+  # Links that are not list entries and should not get activity info.
+  noActivity = ["https://github.com/brycejohnston"]
+
+[module]
+  [[module.mounts]]
+    source = "README.md"
+    target = "content/_index.md"
+
+[markup]
+  [markup.goldmark.parser]
+    autoHeadingIDType = "github"
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[caches.getresource]
+  maxAge = "24h"

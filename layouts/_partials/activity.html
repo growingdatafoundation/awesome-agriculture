@@ -9,6 +9,7 @@
   github.com/owner       -> most recently pushed repository of the org/user
   gitlab.com/group/proj  -> project metadata (last_activity_at)
   gitlab.com/group       -> most recently active project of the group/user
+  codeberg.org/owner/repo -> repo metadata + date of the latest commit
 */ -}}
 {{- $u := . -}}
 {{- $out := "" -}}
@@ -32,6 +33,9 @@
       {{- if reflect.IsSlice $commits -}}{{- range first 1 $commits -}}{{- $date = .commit.committer.date -}}{{- end -}}{{- end -}}
       {{- $lic := "none" -}}
       {{- with $repo.license -}}{{- $lic = cond (eq .spdx_id "NOASSERTION") "other" .spdx_id -}}{{- end -}}
+      {{- if or (eq $lic "other") (eq $lic "none") -}}
+        {{- with index site.Params.licenseOverrides (lower $repo.full_name) -}}{{- $lic = . -}}{{- end -}}
+      {{- end -}}
       {{- with $date -}}
         {{- $out = dict "date" (time.AsTime .) "label" "Last commit" "stars" $repo.stargazers_count "archived" $repo.archived "license" $lic -}}
       {{- end -}}
@@ -54,7 +58,9 @@
       {{- $out = dict "missing" true -}}
     {{- else if $p -}}
       {{- $lic := "none" -}}
-      {{- with $p.license -}}{{- $lic = .nickname | default .name | default "other" -}}{{- end -}}
+      {{- $glSpdx := dict "mit" "MIT" "apache-2.0" "Apache-2.0" "gpl-2.0" "GPL-2.0" "gpl-2.0+" "GPL-2.0-or-later" "gpl-3.0" "GPL-3.0" "gpl-3.0+" "GPL-3.0-or-later" "agpl-3.0" "AGPL-3.0" "agpl-3.0+" "AGPL-3.0-or-later" "lgpl-2.1" "LGPL-2.1" "lgpl-3.0" "LGPL-3.0" "mpl-2.0" "MPL-2.0" "bsd-2-clause" "BSD-2-Clause" "bsd-3-clause" "BSD-3-Clause" "eupl-1.2" "EUPL-1.2" "unlicense" "Unlicense" "cc0-1.0" "CC0-1.0" -}}
+      {{- with $p.license -}}{{- $lic = index $glSpdx (lower .key) | default .nickname | default .name | default "other" -}}{{- end -}}
+      {{- with index site.Params.licenseOverrides (lower $p.path_with_namespace) -}}{{- $lic = . -}}{{- end -}}
       {{- with $p.last_activity_at -}}
         {{- $out = dict "date" (time.AsTime .) "label" "Last activity" "stars" $p.star_count "archived" $p.archived "license" $lic -}}
       {{- end -}}
@@ -70,6 +76,26 @@
     {{- else if reflect.IsSlice $list -}}{{- range first 1 $list -}}{{- with .last_activity_at -}}
       {{- $out = dict "date" (time.AsTime .) "label" "Latest activity across its projects" "stars" nil "archived" false -}}
     {{- end -}}{{- end -}}{{- end -}}
+  {{- end -}}
+
+{{- else if and (eq $host "codeberg.org") (eq (len $segs) 2) -}}
+  {{- /* Codeberg (Forgejo): repositories only. Its API often reports no licence even when a
+         licence file exists, so a licence badge is shown only when one is detected. */ -}}
+  {{- $h := dict "Accept" "application/json" -}}
+  {{- $api := "https://codeberg.org/api/v1" -}}
+  {{- $repo := partial "fetchjson.html" (dict "url" (printf "%s/repos/%s/%s" $api (index $segs 0) (index $segs 1)) "headers" $h) -}}
+  {{- if and (reflect.IsMap $repo) (isset $repo "_missing") -}}
+    {{- $out = dict "missing" true -}}
+  {{- else if $repo -}}
+    {{- $date := $repo.updated_at -}}
+    {{- $commits := partial "fetchjson.html" (dict "url" (printf "%s/repos/%s/commits?limit=1&stat=false&verification=false&files=false" $api $repo.full_name) "headers" $h) -}}
+    {{- if reflect.IsSlice $commits -}}{{- range first 1 $commits -}}{{- $date = .commit.committer.date -}}{{- end -}}{{- end -}}
+    {{- $lic := "" -}}
+    {{- with $repo.licenses -}}{{- $lic = index . 0 -}}{{- end -}}
+    {{- if not $lic -}}{{- with index site.Params.licenseOverrides (lower $repo.full_name) -}}{{- $lic = . -}}{{- end -}}{{- end -}}
+    {{- with $date -}}
+      {{- $out = dict "date" (time.AsTime .) "label" "Last commit" "stars" $repo.stars_count "archived" $repo.archived "license" $lic -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- return $out -}}

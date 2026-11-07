@@ -28,3 +28,14 @@ enableRobotsTXT = true
 
 [caches.getresource]
   maxAge = "24h"
+
+# Licences verified by reading the licence file, for repositories whose forge API
+# reports "other"/NOASSERTION or nothing. Keys: lower-case "owner/repo".
+[params.licenseOverrides]
+  "magpiemodel/magpie" = "AGPL-3.0"
+  "didiermurillof/fieldhub" = "MIT"
+  "openalea/phenomenal" = "CECILL-C"
+  "openalea/plantgl" = "CECILL-C"
+  "foodcoops/foodsoft" = "AGPL-3.0-or-later"
+  "karrot/karrot-frontend" = "MIT"
+  "adamhsparks/epicrop.jl" = "MIT"

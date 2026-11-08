@@ -39,7 +39,19 @@
     {{- with .license -}}
       {{- if eq . "none" -}}<span class="lic lic--none" title="No licence file detected; reuse may not be permitted">no licence</span>
       {{- else if eq . "other" -}}<span class="lic" title="Licence file present but not a recognised standard licence">other licence</span>
+      {{- else if in site.Params.nonFreeLicences . -}}<span class="lic lic--none" title="Not an open source licence">{{ . }} (non-free)</span>
       {{- else -}}<span class="lic" title="Licence">{{ . }}</span>
+      {{- end -}}
+    {{- end -}}
+    {{- if .sampled -}}
+      {{- $n := .sampled -}}
+      {{- $free := slice -}}
+      {{- range .licenses -}}{{- if in site.Params.nonFreeLicences . -}}{{- else -}}{{- $free = $free | append . -}}{{- end -}}{{- end -}}
+      {{- $title := printf "Licences of its %d most-starred repositories (forks and archived excluded)" $n -}}
+      {{- if $free -}}
+        <span class="lic" title="{{ $title }}">{{ delimit $free " · " }}{{ with .unlicensed }} · {{ . }} unlicensed{{ end }}</span>
+      {{- else -}}
+        <span class="lic lic--none" title="{{ $title }}: no open source licence detected">no licence</span>
       {{- end -}}
     {{- end -}}
     {{- if .archived -}}<span class="tag">archived</span>{{- end -}}

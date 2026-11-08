@@ -13,6 +13,8 @@ enableRobotsTXT = true
   orgURL = "https://gdf.org.au/"
   # Links that are not list entries and should not get activity info.
   noActivity = ["https://github.com/brycejohnston"]
+  # Licences that are not open source; shown with a "non-free" badge.
+  nonFreeLicences = ["CC-BY-NC-SA-4.0", "CC-BY-NC-4.0", "CC-BY-ND-4.0", "CC-BY-NC-ND-4.0"]
 
 [module]
   [[module.mounts]]
@@ -39,3 +41,14 @@ enableRobotsTXT = true
   "foodcoops/foodsoft" = "AGPL-3.0-or-later"
   "karrot/karrot-frontend" = "MIT"
   "adamhsparks/epicrop.jl" = "MIT"
+  "ropensci/gsodr" = "MIT"
+  "kwstat/agridat" = "MIT"
+  "sencrop/sencrop-js-api-client" = "MIT"
+  "matmis/simplesteer" = "GPL-3.0"
+  "sen2agri/sen2agri-system" = "GPL-3.0-or-later"
+  "autogrow/openminder" = "CC-BY-NC-SA-4.0"
+  "earthrover/opener" = "BSD-3-Clause"
+  "earthrover/earth_rover_localization" = "BSD-3-Clause"
+  "twisted-fields/rp2040-motor-controller" = "CERN-OHL-P-2.0"
+  "twisted-fields/induction_encoder" = "CERN-OHL-P-2.0"
+  "twisted-fields/acorn-mechanical-designs" = "CERN-OHL-P-2.0"

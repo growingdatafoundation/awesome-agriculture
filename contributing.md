@@ -15,8 +15,10 @@ Know another awesome API, project, library, app, or tool that is missing from th
 - Remove any trailing whitespace.
 
 ## Licence requirements
-- **Software** must be released under an [OSI-approved](https://opensource.org/licenses) or [FSF-approved](https://www.gnu.org/licenses/license-list.html) free and open source licence, with a licence file in the repository.
-- **Datasets** must use an open data licence: [CC0](https://creativecommons.org/publicdomain/zero/1.0/), [CC BY](https://creativecommons.org/licenses/by/4.0/) or [ODbL](https://opendatacommons.org/licenses/odbl/).
+- **Software** must be released under an [OSI-approved](https://opensource.org/licenses) or [FSF-approved](https://www.gnu.org/licenses/license-list.html) free and open source licence, or a Creative Commons non-commercial licence ([CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) or [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/)), with a licence file in the repository.
+- **Datasets** must use an open data licence: [CC0](https://creativecommons.org/publicdomain/zero/1.0/), [CC BY](https://creativecommons.org/licenses/by/4.0/), [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/), [ODbL](https://opendatacommons.org/licenses/odbl/), or the non-commercial [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) and [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+- **Non-commercial licences are welcome.** Ruling out commercial use is a fair restriction with legitimate reasons, such as protecting community work from corporate capture. These entries carry a "non-commercial" badge so users can see the terms at a glance.
+- **No-derivatives licences** (CC BY-ND, CC BY-NC-ND) are not accepted, because they don't allow anyone to adapt or build on the work.
 - **Websites and communities** must be about open source projects.
 - State the licence in your pull request.
 

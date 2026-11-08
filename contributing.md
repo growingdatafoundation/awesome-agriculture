@@ -20,4 +20,4 @@ Know another awesome API, project, library, app, or tool that is missing from th
 - **Websites and communities** must be about open source projects.
 - State the licence in your pull request.
 
-Entries added before these requirements are kept. Those without a detectable licence are marked "no licence" on [awesome-agriculture.gdf.org.au](https://awesome-agriculture.gdf.org.au/) and are under review. If you maintain one of them, adding a licence file is the quickest fix.
+Entries added before these requirements are kept. Those without a detectable licence are marked "no licence" on [awesome-agriculture.gdf.org.au](https://awesome-agriculture.gdf.org.au/) and are [under review](https://github.com/growingdatafoundation/awesome-agriculture/issues/4) until 9 May 2027. If you maintain one of them, adding a licence file is the quickest fix.

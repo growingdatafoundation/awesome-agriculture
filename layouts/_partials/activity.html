@@ -58,8 +58,10 @@
         {{- if not $l -}}{{- with index site.Params.licenseOverrides (lower .full_name) -}}{{- $l = . -}}{{- end -}}{{- end -}}
         {{- if $l -}}{{- $lics = $lics | append $l -}}{{- else -}}{{- $unlicensed = add $unlicensed 1 -}}{{- end -}}
       {{- end -}}
-      {{- range first 1 $repos -}}{{- with .pushed_at -}}
-        {{- $out = dict "date" (time.AsTime .) "label" "Latest activity across its repositories" "stars" nil "archived" false "licenses" (uniq $lics) "unlicensed" $unlicensed "sampled" (len $sample) -}}
+      {{- /* Activity date from the organisation's own repositories (forks excluded), falling back to all. */ -}}
+      {{- $byPush := sort (where $repos "fork" false) "pushed_at" "desc" | default $repos -}}
+      {{- range first 1 $byPush -}}{{- with .pushed_at -}}
+        {{- $out = dict "date" (time.AsTime .) "label" "Latest activity across its own repositories" "stars" nil "archived" false "licenses" (uniq $lics) "unlicensed" $unlicensed "sampled" (len $sample) -}}
       {{- end -}}{{- end -}}
     {{- end -}}
   {{- end -}}

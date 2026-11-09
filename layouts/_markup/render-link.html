@@ -58,5 +58,12 @@
     {{- if .archived -}}<span class="tag">archived</span>{{- end -}}
     </span>
     {{- end -}}
+  {{- else if not (in (slice "github.com" "gitlab.com" "codeberg.org") (lower $u.Host | strings.TrimPrefix "www.")) -}}
+    {{- /* Website entry: no forge data, so show the hand-checked licence, if any. */ -}}
+    {{- with index site.Params.siteLicences (strings.TrimSuffix "/" $dest) -}}
+      <span class="meta"><span class="lic" title="Licence of the project behind this website, checked by hand">{{ delimit . " · " }}</span></span>
+    {{- else -}}
+      <span class="meta"><span class="lic lic--none" title="No open licence found for this website entry; it is under public licence review">no licence</span></span>
+    {{- end -}}
   {{- end -}}
 {{- end -}}

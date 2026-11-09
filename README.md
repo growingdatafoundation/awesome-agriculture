@@ -68,7 +68,7 @@ Communities and tools for simulating crop growth, measuring plant traits and stu
 - [DSSAT](https://github.com/DSSAT/dssat-csm-os) - Decision Support System for Agrotechnology Transfer cropping system model.
 - [Epicrop.jl](https://codeberg.org/adamhsparks/Epicrop.jl) - Crop disease epidemic simulation using a compartmental (HLIP) model, in Julia.
 - [FielDHub](https://github.com/DidierMurilloF/FielDHub) - R/Shiny app for designing agricultural field experiments.
-- [Open Plant Pathology](https://www.openplantpathology.org/) - A community that values open data and computational tools for advancing epidemiology and pathogen population biology and ecology.
+- [Open Plant Pathology](https://github.com/openplantpathology) - A community that values open data and computational tools for advancing epidemiology and pathogen population biology and ecology.
 - [Phenomenal](https://github.com/openalea/phenomenal) - 3D plant phenotyping and organ segmentation from multi-view images.
 - [PlantGL](https://github.com/openalea/plantgl) - Geometric library for modelling and visualising plant architecture.
 

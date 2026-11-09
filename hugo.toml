@@ -11,8 +11,15 @@ enableRobotsTXT = true
   repo = "https://github.com/growingdatafoundation/awesome-agriculture"
   org = "Growing Data Foundation"
   orgURL = "https://gdf.org.au/"
-  # Links that are not list entries and should not get activity info.
-  noActivity = ["https://github.com/brycejohnston"]
+  # Links that are not list entries and should not get activity or licence info.
+  noActivity = [
+    "https://github.com/brycejohnston",
+    "https://awesome.re",
+    "https://en.wikipedia.org/wiki/Agriculture",
+    "https://doi.org/10.5061/dryad.4b8gtht99",
+    "https://app.globus.org/file-manager?origin_id=e8feaff4-96cd-11ea-bf90-0e6cccbb0103&origin_path=%2F",
+    "https://creativecommons.org/publicdomain/zero/1.0",
+  ]
 
 [module]
   [[module.mounts]]
@@ -28,6 +35,21 @@ enableRobotsTXT = true
 
 [caches.getresource]
   maxAge = "24h"
+
+# Website entries (no forge API): licence of the project behind the site, checked by hand.
+# Keys: the README URL without a trailing slash. Unlisted website entries show "no licence".
+[params.siteLicences]
+  "https://media.romi-project.eu/documents/index.html" = ["LGPL-3.0", "CC-BY-4.0"]
+  "http://rosagriculture.org" = ["MIT", "Apache-2.0"]
+  "https://hackaday.io/project/53896-weedinator-2019" = ["GPL-3.0", "CC-BY-SA"]
+  "https://data.harvestportal.org/dataset/fao-bha-nasa-harvest-public-crop-type-datasets" = ["CC-BY"]
+  "https://www.growstuff.org/crops" = ["AGPL-3.0"]
+  "https://terraref.org" = ["BSD-3-Clause"]
+  "https://adaptframework.org" = ["EPL-1.0"]
+  "https://www.fiware.org/community/smart-agrifood" = ["CC-BY-4.0"]
+  "https://openteam.community" = ["GPL-2.0-or-later", "CC-BY-4.0"]
+  "https://qgis.org" = ["GPL-2.0"]
+  "https://openhydroponics.com" = ["MPL-2.0", "CERN-OHL-W-2.0"]
 
 # Licences verified by reading the licence file, for repositories whose forge API
 # reports "other"/NOASSERTION or nothing. Keys: lower-case "owner/repo".

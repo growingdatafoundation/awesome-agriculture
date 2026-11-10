@@ -58,6 +58,7 @@ Libraries, datasets and services for weather, evapotranspiration and soil data: 
 - [PyETo](https://github.com/woodcrafty/PyETo) - Python package for calculating reference/potential evapotranspiration (ETo).
 - [pyTSEB](https://github.com/hectornieto/pyTSEB) - A python two source energy balance model for estimation of evapotranspiration with remote sensing data.
 - [soilDB](https://github.com/ncss-tech/soilDB) - R library for simplified access to NCSS soil databases.
+- [SoilHive Core](https://github.com/varda-ag/soilhive-core) - Federated platform for discovering, harmonising and sharing soil datasets across institutions.
 
 ## Crop Modeling, Phenotyping, and Pathology
 
